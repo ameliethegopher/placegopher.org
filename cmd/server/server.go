@@ -11,6 +11,9 @@ import (
 )
 
 func imgHandler(w http.ResponseWriter, r *http.Request) {
+	// Yeah, we could use gorilla/schema for the query handling (https://godoc.org/github.com/gorilla/schema) but this
+	// is so simple, we might as well do it here so it is immediately understandable.
+
 	// we know "w" should ALWAYS be specified
 	width, err := strconv.Atoi(r.FormValue("w"))
 	if err != nil {
